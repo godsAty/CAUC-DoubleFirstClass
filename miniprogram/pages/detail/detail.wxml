@@ -1,0 +1,134 @@
+<!-- 单项指标详情页 -->
+<view class="container" wx:if="{{!loading && indicator}}">
+
+  <!-- 指标头部信息 -->
+  <view class="detail-header card">
+    <view class="indicator-badge">
+      <text class="badge-code">{{indicator.code}}</text>
+    </view>
+    <text class="detail-name">{{indicator.name}}</text>
+    <view class="detail-meta">
+      <text class="meta-item">权重: {{indicator.weight}}%</text>
+      <text class="meta-item" wx:if="{{indicator.dataSource}}">来源: {{indicator.dataSource}}</text>
+    </view>
+  </view>
+
+  <!-- 核心数据展示 -->
+  <view class="core-data card">
+    <view class="core-left">
+      <!-- Canvas 环形进度条 -->
+      <canvas
+        canvas-id="completionRing"
+        id="completionRing"
+        style="width: 110px; height: 110px;"
+        class="ring-mini-canvas"
+      ></canvas>
+      <view class="ring-overlay">
+        <text class="ring-overlay-num">{{indicator.completionRate}}</text>
+        <text class="ring-overlay-pct">%</text>
+        <text class="ring-overlay-label">达成度</text>
+      </view>
+    </view>
+
+    <view class="core-right">
+      <view class="core-row">
+        <view class="core-dot blue"></view>
+        <view class="core-info">
+          <text class="core-label">本校实际值</text>
+          <text class="core-value blue">{{indicator.actual}} <text class="core-unit">{{indicator.unit}}</text></text>
+        </view>
+      </view>
+      <view class="core-row">
+        <view class="core-dot green"></view>
+        <view class="core-info">
+          <text class="core-label">双一流建设目标值</text>
+          <text class="core-value green">{{indicator.target}} <text class="core-unit">{{indicator.unit}}</text></text>
+        </view>
+      </view>
+      <view class="core-row">
+        <view class="core-dot orange"></view>
+        <view class="core-info">
+          <text class="core-label">双一流高校全国均值</text>
+          <text class="core-value orange">{{indicator.nationalAvg}} <text class="core-unit">{{indicator.unit}}</text></text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 差距分析 -->
+  <view class="gap-analysis card">
+    <view class="card-title mb-24">差距分析</view>
+
+    <view class="gap-row">
+      <view class="gap-item">
+        <text class="gap-label">距目标值差距</text>
+        <view class="gap-bar-track">
+          <view
+            class="gap-bar-fill {{indicator.completionRate >= 90 ? 'green' : indicator.completionRate >= 70 ? 'blue' : indicator.completionRate >= 50 ? 'orange' : 'red'}}"
+            style="width: {{indicator.completionRate}}%;"
+          ></view>
+        </view>
+        <text class="gap-value">
+          {{indicator.direction === 'up' ? '还差' : '超出'}} {{indicator.gapToTarget}}{{indicator.unit}}
+        </text>
+      </view>
+    </view>
+
+    <view class="gap-row mt-24">
+      <view class="gap-item">
+        <text class="gap-label">距全国均值差距</text>
+        <view class="gap-bar-track">
+          <view
+            class="gap-bar-fill {{indicator.nationalRate >= 90 ? 'green' : indicator.nationalRate >= 70 ? 'blue' : indicator.nationalRate >= 50 ? 'orange' : 'red'}}"
+            style="width: {{indicator.nationalRate}}%;"
+          ></view>
+        </view>
+        <text class="gap-value">
+          {{indicator.direction === 'up' ? '低于均值' : '高于均值'}} {{indicator.gapToNational}}{{indicator.unit}}
+        </text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 历史趋势 -->
+  <view class="trend-section card" wx:if="{{trend.length > 0}}">
+    <view class="card-header">
+      <text class="card-title">历史趋势</text>
+      <text class="card-subtitle">最近4个季度</text>
+    </view>
+    <view class="trend-chart">
+      <canvas
+        canvas-id="trendCanvas"
+        id="trendCanvas"
+        style="width: 320px; height: 200px;"
+        class="trend-canvas"
+      ></canvas>
+    </view>
+  </view>
+
+  <!-- 完成度评定 -->
+  <view class="evaluation card">
+    <view class="card-title mb-24">完成度评定</view>
+    <view class="eval-badge {{indicator.completionRate >= 90 ? 'eval-excellent' : indicator.completionRate >= 70 ? 'eval-good' : indicator.completionRate >= 50 ? 'eval-fair' : 'eval-poor'}}">
+      <text class="eval-text">
+        {{indicator.completionRate >= 90 ? '优秀' : indicator.completionRate >= 70 ? '良好' : indicator.completionRate >= 50 ? '一般' : '需重点提升'}}
+      </text>
+    </view>
+    <view class="eval-desc mt-24">
+      <text wx:if="{{indicator.completionRate >= 90}}">该指标已接近或达到双一流建设目标值，处于国内高校前列水平。</text>
+      <text wx:elif="{{indicator.completionRate >= 70}}">该指标完成情况良好，建议持续投入，争取早日达到目标。</text>
+      <text wx:elif="{{indicator.completionRate >= 50}}">该指标有一定基础但仍有较大提升空间，建议制定专项提升计划。</text>
+      <text wx:else>该指标完成度偏低，与双一流建设目标及全国均值存在明显差距，需重点突破。</text>
+    </view>
+  </view>
+
+</view>
+
+<!-- 加载 / 错误 -->
+<view class="loading-text" wx:if="{{loading}}">加载指标详情...</view>
+<view class="error-state" wx:if="{{error && !loading}}">
+  <text class="error-icon">!</text>
+  <text class="error-title">数据加载失败</text>
+  <text class="error-desc">请确认后端 Flask 服务已启动</text>
+  <button class="btn-retry" bindtap="fetchDetail">重新加载</button>
+</view>

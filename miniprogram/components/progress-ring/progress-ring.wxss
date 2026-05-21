@@ -1,0 +1,41 @@
+.progress-ring-container {
+  position: relative;
+  margin: 0 auto;
+}
+
+.progress-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.ring-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.ring-percent {
+  font-size: 52rpx;
+  font-weight: 700;
+  color: #1a3a5c;
+  line-height: 1.2;
+}
+
+.ring-title {
+  font-size: 22rpx;
+  color: #666;
+  margin-top: 4rpx;
+}
+
+.ring-subtitle {
+  font-size: 20rpx;
+  color: #999;
+  margin-top: 2rpx;
+}

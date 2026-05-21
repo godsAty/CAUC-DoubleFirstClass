@@ -1,0 +1,44 @@
+<view class="comparison-bar">
+  <!-- 标签 -->
+  <view class="bar-label">
+    <text class="bar-label-text">{{label}}</text>
+  </view>
+
+  <!-- 柱状区域 -->
+  <view class="bar-area">
+    <!-- 目标线 -->
+    <view class="target-line" style="left: {{targetValue / maxValue * 100}}%;"></view>
+
+    <!-- 本校柱 -->
+    <view class="bar-track">
+      <view class="bar-fill cauc-fill" style="width: {{caucWidth}}%;">
+        <text class="bar-value-text" wx:if="{{caucWidth > 15}}">{{caucValue}}{{unit}}</text>
+      </view>
+      <text class="bar-value-text outside" wx:if="{{caucWidth <= 15}}" style="left: {{caucWidth + 2}}%;">{{caucValue}}{{unit}}</text>
+    </view>
+
+    <!-- 全国均值柱 -->
+    <view class="bar-track" style="margin-top: 8rpx;">
+      <view class="bar-fill national-fill" style="width: {{nationalWidth}}%;">
+        <text class="bar-value-text" wx:if="{{nationalWidth > 15}}">{{nationalValue}}{{unit}}</text>
+      </view>
+      <text class="bar-value-text outside" wx:if="{{nationalWidth <= 15}}" style="left: {{nationalWidth + 2}}%;">{{nationalValue}}{{unit}}</text>
+    </view>
+
+    <!-- 图例 -->
+    <view class="bar-legend">
+      <view class="legend-item">
+        <view class="legend-dot cauc"></view>
+        <text>本校</text>
+      </view>
+      <view class="legend-item">
+        <view class="legend-dot national"></view>
+        <text>全国均值</text>
+      </view>
+      <view class="legend-item">
+        <view class="legend-line"></view>
+        <text>目标值</text>
+      </view>
+    </view>
+  </view>
+</view>

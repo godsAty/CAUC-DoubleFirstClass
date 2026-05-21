@@ -1,0 +1,86 @@
+<!-- 对标对比分析页 -->
+<view class="container">
+
+  <!-- 对比总结 -->
+  <view class="comparison-summary card">
+    <text class="card-title">综合对比总览</text>
+    <view class="summary-grid">
+      <view class="summary-item">
+        <text class="summary-num">{{overallCauc}}%</text>
+        <text class="summary-label">本校综合达成度</text>
+      </view>
+      <view class="summary-divider"></view>
+      <view class="summary-item">
+        <text class="summary-num orange">{{overallNational}}%</text>
+        <text class="summary-label">全国均值达成度</text>
+      </view>
+      <view class="summary-divider"></view>
+      <view class="summary-item">
+        <text class="summary-num green">100%</text>
+        <text class="summary-label">双一流建设目标</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 雷达图 -->
+  <view class="radar-card card" wx:if="{{!loading && radarData}}">
+    <view class="card-header">
+      <text class="card-title">五大维度达成度雷达图</text>
+    </view>
+    <view class="radar-container">
+      <canvas
+        canvas-id="radarCanvas"
+        id="radarCanvas"
+        style="width: 340px; height: 340px;"
+        class="radar-canvas"
+      ></canvas>
+    </view>
+    <!-- 图例 -->
+    <view class="chart-legend">
+      <view class="legend-item">
+        <view class="legend-dot blue"></view>
+        <text>本校达成度</text>
+      </view>
+      <view class="legend-item">
+        <view class="legend-dot orange"></view>
+        <text>全国均值达成度</text>
+      </view>
+      <view class="legend-item">
+        <view class="legend-dash green"></view>
+        <text>双一流建设目标</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 全指标柱状对比 -->
+  <view class="bar-card card" wx:if="{{!loading && barData}}">
+    <view class="card-header">
+      <text class="card-title">全指标达成度对比</text>
+      <text class="card-subtitle">24项指标逐项对照</text>
+    </view>
+
+    <view class="bar-list">
+      <comparison-bar
+        wx:for="{{barData.indicators}}"
+        wx:key="*this"
+        wx:for-index="idx"
+        label="{{item}}"
+        caucValue="{{barData.cauc[idx]}}"
+        nationalValue="{{barData.nationalAvg[idx]}}"
+        targetValue="{{barData.target[idx]}}"
+        unit="%"
+        maxValue="{{100}}"
+      ></comparison-bar>
+    </view>
+  </view>
+
+  <!-- 加载 / 错误 -->
+  <view class="loading-text" wx:if="{{loading}}">正在生成对比图表...</view>
+  <view class="error-state" wx:if="{{error && !loading}}">
+    <text class="error-icon">!</text>
+    <text class="error-title">数据加载失败</text>
+    <text class="error-desc">请确认后端 Flask 服务已启动</text>
+    <button class="btn-retry" bindtap="fetchData">重新加载</button>
+  </view>
+
+</view>

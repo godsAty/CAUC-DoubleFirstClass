@@ -1,0 +1,59 @@
+{
+  "description": "中国民航大学双一流建设完成度实时报告",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useCompilerModule": false,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "compileWorklet": false,
+    "uglifyFileName": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "minifyWXML": true,
+    "localPlugins": false,
+    "disableUseStrict": false,
+    "useCompilerPlugins": false,
+    "condition": false,
+    "swc": false,
+    "disableSWC": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.32.3",
+  "appid": "wxed583e0d88360573",
+  "projectname": "cauc-double-first-class",
+  "isGameTourist": false,
+  "condition": {
+    "search": {},
+    "conversation": {},
+    "plugin": {},
+    "game": {},
+    "miniprogram": {}
+  },
+  "simulatorPluginLibVersion": {},
+  "editorSetting": {}
+}

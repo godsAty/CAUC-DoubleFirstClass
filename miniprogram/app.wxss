@@ -1,0 +1,219 @@
+/* 全局样式 - 中国民航大学双一流建设看板 */
+/* 航空蓝主题 #1a3a5c */
+
+page {
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-size: 28rpx;
+  color: #333;
+  background-color: #f0f4f8;
+  line-height: 1.6;
+}
+
+/* 通用容器 */
+.container {
+  padding: 24rpx;
+}
+
+/* 卡片样式 */
+.card {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 28rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.06);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+  padding-bottom: 16rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.card-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #1a3a5c;
+}
+
+.card-subtitle {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 进度条 */
+.progress-bar {
+  height: 16rpx;
+  background: #e8ecf0;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 8rpx;
+  transition: width 0.6s ease;
+}
+
+/* 标签 */
+.tag {
+  display: inline-block;
+  padding: 6rpx 16rpx;
+  border-radius: 8rpx;
+  font-size: 22rpx;
+  font-weight: 500;
+}
+
+.tag-green  { background: #e8f8f0; color: #1a7a3a; }
+.tag-blue   { background: #e8f0fe; color: #1a5276; }
+.tag-orange { background: #fef5e7; color: #7d6608; }
+.tag-red    { background: #fdedec; color: #922b21; }
+
+/* 网格布局 */
+.grid-2 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+}
+
+.grid-2 > .grid-item {
+  width: calc(50% - 10rpx);
+}
+
+/* 弹性布局 */
+.flex-row {
+  display: flex;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 间距 */
+.mt-16 { margin-top: 16rpx; }
+.mt-24 { margin-top: 24rpx; }
+.mb-16 { margin-bottom: 16rpx; }
+.mb-24 { margin-bottom: 24rpx; }
+
+/* 分割线 */
+.divider {
+  height: 1rpx;
+  background: #e8ecf0;
+  margin: 20rpx 0;
+}
+
+/* 文字样式 */
+.text-center { text-align: center; }
+.text-small  { font-size: 24rpx; color: #999; }
+.text-medium { font-size: 28rpx; color: #666; }
+.text-large  { font-size: 48rpx; font-weight: 700; }
+.text-bold   { font-weight: 600; }
+.color-primary { color: #1a3a5c; }
+
+/* 按钮 */
+.btn-primary {
+  background: linear-gradient(135deg, #1a3a5c, #2d6cdf);
+  color: #fff;
+  border: none;
+  border-radius: 12rpx;
+  padding: 20rpx 40rpx;
+  font-size: 30rpx;
+  font-weight: 500;
+  text-align: center;
+  display: block;
+}
+
+.btn-primary:active {
+  opacity: 0.85;
+}
+
+/* 错误状态 */
+.error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80rpx 40rpx;
+  gap: 12rpx;
+}
+
+.error-icon {
+  width: 80rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background: #fde8e7;
+  color: #d4443c;
+  font-size: 40rpx;
+  font-weight: 700;
+  border-radius: 50%;
+  margin-bottom: 12rpx;
+}
+
+.error-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.error-desc {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.error-hint {
+  font-size: 22rpx;
+  color: #bbb;
+  font-family: Consolas, monospace;
+  background: #f8f8f8;
+  padding: 8rpx 24rpx;
+  border-radius: 8rpx;
+  margin-top: 8rpx;
+}
+
+.btn-retry {
+  margin-top: 32rpx;
+  padding: 16rpx 48rpx;
+  font-size: 28rpx;
+  background: #fff;
+  color: #2d6cdf;
+  border: 1rpx solid #2d6cdf;
+  border-radius: 12rpx;
+}
+
+/* 导航区域-安全区 */
+.safe-area-top {
+  padding-top: env(safe-area-inset-top);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* 加载状态 */
+.loading-text {
+  text-align: center;
+  padding: 80rpx 0;
+  color: #999;
+  font-size: 28rpx;
+}
+
+/* 空状态 */
+.empty-state {
+  text-align: center;
+  padding: 100rpx 0;
+  color: #999;
+}
+
+.empty-state .icon {
+  font-size: 100rpx;
+  margin-bottom: 20rpx;
+}

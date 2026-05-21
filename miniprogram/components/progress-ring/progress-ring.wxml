@@ -1,0 +1,12 @@
+<view class="progress-ring-container" style="width: {{size}}rpx; height: {{size}}rpx;">
+  <canvas
+    class="progress-canvas"
+    canvas-id="progressRing"
+    style="width: {{size}}rpx; height: {{size}}rpx;"
+  ></canvas>
+  <view class="ring-text" wx:if="{{showText}}" style="width: {{size}}rpx;">
+    <text class="ring-percent">{{ringPercent}}%</text>
+    <text class="ring-title" wx:if="{{title}}">{{title}}</text>
+    <text class="ring-subtitle" wx:if="{{subtitle}}">{{subtitle}}</text>
+  </view>
+</view>

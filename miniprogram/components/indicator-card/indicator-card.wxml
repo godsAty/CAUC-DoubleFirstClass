@@ -1,0 +1,53 @@
+<view class="indicator-card card" bindtap="onTapCard">
+  <!-- 标题行 -->
+  <view class="card-top">
+    <view class="flex-row">
+      <text class="indicator-code">{{indicator.code}}</text>
+      <text class="indicator-name">{{indicator.name}}</text>
+    </view>
+    <view class="tag {{indicator.completionRate >= 90 ? 'tag-green' : indicator.completionRate >= 70 ? 'tag-blue' : indicator.completionRate >= 50 ? 'tag-orange' : 'tag-red'}}">
+      {{indicator.completionRate}}%
+    </view>
+  </view>
+
+  <!-- 数据对比行 -->
+  <view class="data-row">
+    <view class="data-item">
+      <text class="data-label">本校实际</text>
+      <text class="data-value actual">{{indicator.actual}}{{indicator.unit}}</text>
+    </view>
+    <view class="data-item">
+      <text class="data-label">双一流目标</text>
+      <text class="data-value target">{{indicator.target}}{{indicator.unit}}</text>
+    </view>
+    <view class="data-item">
+      <text class="data-label">全国均值</text>
+      <text class="data-value national">{{indicator.nationalAvg}}{{indicator.unit}}</text>
+    </view>
+  </view>
+
+  <!-- 进度条 -->
+  <view class="progress-section">
+    <view class="flex-between mb-16">
+      <text class="text-small">达成度</text>
+      <text class="text-small">{{indicator.completionRate}}%</text>
+    </view>
+    <view class="progress-bar">
+      <view
+        class="progress-bar-fill"
+        style="width: {{indicator.completionRate}}%; background: {{indicator.completionRate >= 90 ? '#2ecc71' : indicator.completionRate >= 70 ? '#3498db' : indicator.completionRate >= 50 ? '#f39c12' : '#e74c3c'}};"
+      ></view>
+    </view>
+    <!-- 全国均值参考线 -->
+    <view class="progress-bar mt-16" style="height: 8rpx;">
+      <view
+        class="progress-bar-fill"
+        style="width: {{indicator.nationalRate}}%; background: #f5a623; opacity: 0.6;"
+      ></view>
+    </view>
+    <view class="flex-between mt-16">
+      <text class="text-small" style="color: #999;">全国均值达成度</text>
+      <text class="text-small" style="color: #f5a623;">{{indicator.nationalRate}}%</text>
+    </view>
+  </view>
+</view>

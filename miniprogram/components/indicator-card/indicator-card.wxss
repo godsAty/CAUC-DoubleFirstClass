@@ -1,0 +1,61 @@
+.indicator-card {
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.indicator-code {
+  background: #e8f0fe;
+  color: #2d6cdf;
+  font-size: 22rpx;
+  font-weight: 600;
+  padding: 4rpx 12rpx;
+  border-radius: 6rpx;
+  margin-right: 12rpx;
+}
+
+.indicator-name {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+.data-row {
+  display: flex;
+  justify-content: space-around;
+  padding: 20rpx 0;
+  background: #f8fafc;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+}
+
+.data-item {
+  text-align: center;
+  flex: 1;
+}
+
+.data-label {
+  display: block;
+  font-size: 22rpx;
+  color: #999;
+  margin-bottom: 6rpx;
+}
+
+.data-value {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.data-value.actual  { color: #2d6cdf; }
+.data-value.target  { color: #3c9c3f; }
+.data-value.national { color: #f5a623; }
+
+.progress-section {
+  padding-top: 8rpx;
+}

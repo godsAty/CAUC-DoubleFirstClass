@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/category/category",
+    "pages/comparison/comparison",
+    "pages/detail/detail"
+  ],
+  "window": {
+    "navigationBarTitleText": "中航大双一流建设看板",
+    "navigationBarBackgroundColor": "#1a3a5c",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f0f4f8",
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#8a99a9",
+    "selectedColor": "#1a3a5c",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "综合概览"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "text": "指标详情"
+      },
+      {
+        "pagePath": "pages/comparison/comparison",
+        "text": "对标对比"
+      }
+    ]
+  },
+  "usingComponents": {
+    "progress-ring": "/components/progress-ring/progress-ring",
+    "indicator-card": "/components/indicator-card/indicator-card",
+    "comparison-bar": "/components/comparison-bar/comparison-bar"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

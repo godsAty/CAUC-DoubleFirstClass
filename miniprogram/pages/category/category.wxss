@@ -1,0 +1,81 @@
+/* 分类详情页 */
+.category-header {
+  background: linear-gradient(135deg, #1a3a5c, #2d6cdf);
+  color: #fff;
+  text-align: center;
+  padding: 32rpx 28rpx;
+  margin-bottom: 16rpx;
+}
+
+.cat-header-name {
+  font-size: 36rpx;
+  font-weight: 600;
+  margin-bottom: 20rpx;
+}
+
+.cat-header-stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40rpx;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-num {
+  font-size: 44rpx;
+  font-weight: 700;
+}
+
+.stat-num.orange { color: #ffc356; }
+
+.stat-label {
+  font-size: 22rpx;
+  opacity: 0.8;
+  margin-top: 4rpx;
+}
+
+.stat-divider {
+  width: 2rpx;
+  height: 60rpx;
+  background: rgba(255,255,255,0.3);
+}
+
+/* Tab 栏 */
+.tab-bar {
+  white-space: nowrap;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 8rpx 16rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.04);
+}
+
+.tab-item {
+  display: inline-block;
+  padding: 18rpx 28rpx;
+  font-size: 26rpx;
+  color: #666;
+  position: relative;
+  text-align: center;
+}
+
+.tab-item.active {
+  color: #2d6cdf;
+  font-weight: 600;
+}
+
+.tab-indicator {
+  position: absolute;
+  bottom: 4rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32rpx;
+  height: 4rpx;
+  background: #2d6cdf;
+  border-radius: 2rpx;
+}

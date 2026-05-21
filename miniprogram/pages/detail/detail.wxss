@@ -1,0 +1,225 @@
+/* 单项指标详情页 */
+.detail-header {
+  text-align: center;
+  padding: 32rpx 28rpx;
+}
+
+.badge-code {
+  background: #e8f0fe;
+  color: #2d6cdf;
+  font-size: 24rpx;
+  font-weight: 700;
+  padding: 8rpx 20rpx;
+  border-radius: 8rpx;
+}
+
+.detail-name {
+  display: block;
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #1a3a5c;
+  margin-top: 16rpx;
+  line-height: 1.4;
+}
+
+.detail-meta {
+  display: flex;
+  justify-content: center;
+  gap: 24rpx;
+  margin-top: 14rpx;
+}
+
+.meta-item {
+  font-size: 22rpx;
+  color: #999;
+}
+
+/* 核心数据 */
+.core-data {
+  display: flex;
+  align-items: center;
+  padding: 32rpx 28rpx;
+}
+
+.core-left {
+  position: relative;
+  width: 240rpx;
+  height: 220rpx;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ring-mini-canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ring-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+}
+
+.ring-overlay-num {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #1a3a5c;
+}
+
+.ring-overlay-pct {
+  font-size: 28rpx;
+  color: #1a3a5c;
+  font-weight: 600;
+}
+
+.ring-overlay-label {
+  display: block;
+  font-size: 20rpx;
+  color: #999;
+  margin-top: 2rpx;
+}
+
+.core-right {
+  flex: 1;
+  margin-left: 24rpx;
+}
+
+.core-row {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20rpx;
+}
+
+.core-row:last-child {
+  margin-bottom: 0;
+}
+
+.core-dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  margin-top: 10rpx;
+  margin-right: 12rpx;
+  flex-shrink: 0;
+}
+
+.core-dot.blue   { background: #2d6cdf; }
+.core-dot.green  { background: #3c9c3f; }
+.core-dot.orange { background: #f5a623; }
+
+.core-info {
+  flex: 1;
+}
+
+.core-label {
+  display: block;
+  font-size: 22rpx;
+  color: #999;
+  margin-bottom: 2rpx;
+}
+
+.core-value {
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.core-value.blue   { color: #2d6cdf; }
+.core-value.green  { color: #3c9c3f; }
+.core-value.orange { color: #f5a623; }
+
+.core-unit {
+  font-size: 22rpx;
+  font-weight: 400;
+  color: #999;
+}
+
+/* 差距分析 */
+.gap-row {
+  margin-bottom: 8rpx;
+}
+
+.gap-item {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.gap-label {
+  font-size: 24rpx;
+  color: #666;
+  width: 160rpx;
+  flex-shrink: 0;
+}
+
+.gap-bar-track {
+  flex: 1;
+  height: 14rpx;
+  background: #f0f0f0;
+  border-radius: 7rpx;
+  overflow: hidden;
+}
+
+.gap-bar-fill {
+  height: 100%;
+  border-radius: 7rpx;
+  transition: width 0.5s ease;
+}
+
+.gap-bar-fill.green  { background: #2ecc71; }
+.gap-bar-fill.blue   { background: #3498db; }
+.gap-bar-fill.orange { background: #f39c12; }
+.gap-bar-fill.red    { background: #e74c3c; }
+
+.gap-value {
+  font-size: 24rpx;
+  color: #666;
+  width: 160rpx;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* 趋势图 */
+.trend-chart {
+  display: flex;
+  justify-content: center;
+  padding: 10rpx 0;
+}
+
+.trend-canvas {
+  display: block;
+}
+
+/* 评定 */
+.eval-badge {
+  text-align: center;
+  padding: 20rpx;
+  border-radius: 12rpx;
+}
+
+.eval-badge.eval-excellent { background: #e8f8f0; }
+.eval-badge.eval-good      { background: #e8f0fe; }
+.eval-badge.eval-fair      { background: #fef5e7; }
+.eval-badge.eval-poor      { background: #fdedec; }
+
+.eval-text {
+  font-size: 36rpx;
+  font-weight: 700;
+}
+
+.eval-excellent .eval-text { color: #1a7a3a; }
+.eval-good      .eval-text { color: #1a5276; }
+.eval-fair      .eval-text { color: #7d6608; }
+.eval-poor      .eval-text { color: #922b21; }
+
+.eval-desc {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.7;
+}

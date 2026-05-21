@@ -1,0 +1,45 @@
+<!-- 分类指标详情页 -->
+<view class="container">
+
+  <!-- 分类抬头 -->
+  <view class="category-header card">
+    <text class="cat-header-name">{{tabs[activeTab-1].name}}</text>
+    <view class="cat-header-stats">
+      <view class="stat-item">
+        <text class="stat-num">{{categoryRate}}%</text>
+        <text class="stat-label">本校达成度</text>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-item">
+        <text class="stat-num orange">{{nationalRate}}%</text>
+        <text class="stat-label">全国均值达成度</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- Tab 切换栏 -->
+  <scroll-view class="tab-bar" scroll-x="true" enable-flex="true">
+    <view
+      class="tab-item {{activeTab === item.id ? 'active' : ''}}"
+      wx:for="{{tabs}}"
+      wx:key="id"
+      data-id="{{item.id}}"
+      bindtap="switchTab"
+    >
+      <text>{{item.name}}</text>
+      <view class="tab-indicator" wx:if="{{activeTab === item.id}}"></view>
+    </view>
+  </scroll-view>
+
+  <!-- 指标列表 -->
+  <view class="indicator-list" wx:if="{{!loading}}">
+    <indicator-card
+      wx:for="{{indicators}}"
+      wx:key="id"
+      indicator="{{item}}"
+    ></indicator-card>
+  </view>
+
+  <view class="loading-text" wx:if="{{loading}}">加载中...</view>
+
+</view>
