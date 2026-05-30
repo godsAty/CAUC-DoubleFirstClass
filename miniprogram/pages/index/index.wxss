@@ -100,31 +100,6 @@
   margin-top: 8rpx;
 }
 
-.rate-explain {
-  display: flex;
-  justify-content: center;
-  gap: 40rpx;
-  margin-top: 10rpx;
-  padding-bottom: 10rpx;
-}
-
-.explain-item {
-  display: flex;
-  align-items: center;
-  gap: 8rpx;
-  font-size: 22rpx;
-  color: #999;
-}
-
-.explain-dot {
-  width: 20rpx;
-  height: 20rpx;
-  border-radius: 50%;
-}
-
-.explain-dot.cauc   { background: #2d6cdf; }
-.explain-dot.target { background: #3c9c3f; }
-
 /* 五大维度 — 单列满宽卡片 */
 .section-title {
   font-size: 30rpx;

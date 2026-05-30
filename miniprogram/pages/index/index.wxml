@@ -32,16 +32,6 @@
       </view>
     </view>
 
-    <view class="rate-explain">
-      <view class="explain-item">
-        <view class="explain-dot cauc"></view>
-        <text>本校达成度</text>
-      </view>
-      <view class="explain-item">
-        <view class="explain-dot target"></view>
-        <text>双一流建设目标</text>
-      </view>
-    </view>
   </view>
 
   <!-- 五大维度卡片（单列满宽） -->
@@ -52,7 +42,7 @@
       class="category-card-full"
       wx:for="{{categories}}"
       wx:key="id"
-      data-id="{{item.id}}"
+      data-id="{{item.id+''}}"
       bindtap="goToCategory"
     >
       <!-- 左侧图标 -->
@@ -66,14 +56,14 @@
       <view class="cat-right">
         <view class="cat-top-row">
           <text class="cat-name-lg">{{item.name}}</text>
-          <text class="cat-rate-lg" style="color: {{item.rate >= 70 ? '#2ecc71' : item.rate >= 50 ? '#3498db' : item.rate >= 30 ? '#f39c12' : '#e74c3c'}};">{{item.rate}}%</text>
+          <text class="cat-rate-lg" style="color: {{item.rate >= 90 ? '#2ecc71' : item.rate >= 70 ? '#3498db' : item.rate >= 50 ? '#f39c12' : '#e74c3c'}};">{{item.rate}}%</text>
         </view>
 
         <!-- 进度条 -->
         <view class="progress-bar cat-progress">
           <view
             class="progress-bar-fill"
-            style="width: {{item.rate}}%; background: {{item.rate >= 70 ? '#2ecc71' : item.rate >= 50 ? '#3498db' : item.rate >= 30 ? '#f39c12' : '#e74c3c'}};"
+            style="width: {{item.rate}}%; background: {{item.rate >= 90 ? '#2ecc71' : item.rate >= 70 ? '#3498db' : item.rate >= 50 ? '#f39c12' : '#e74c3c'}};"
           ></view>
         </view>
 
@@ -111,7 +101,7 @@
   <!-- 底部操作 -->
   <view class="bottom-action mt-24">
     <button class="btn-primary" bindtap="goToComparison">
-      查看详细对标对比 →
+      查看指标对比详情 →
     </button>
   </view>
 

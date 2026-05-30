@@ -27,14 +27,12 @@ Page({
     this.setData({ loading: true, error: false });
     try {
       const data = await api.getComparison();
-      const caucAvg = data.radar.cauc.reduce((a, b) => a + b, 0) / data.radar.cauc.length;
-      const natAvg = data.radar.nationalAvg.reduce((a, b) => a + b, 0) / data.radar.nationalAvg.length;
 
       this.setData({
         radarData: data.radar,
         barData: data.bar,
-        overallCauc: caucAvg.toFixed(2),
-        overallNational: natAvg.toFixed(2),
+        overallCauc: data.overallCauc,
+        overallNational: data.overallNational,
         loading: false,
       });
 

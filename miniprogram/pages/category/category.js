@@ -18,6 +18,8 @@ Page({
     error: false,
   },
 
+  _initialized: false,
+
   onLoad(options) {
     const app = getApp();
     const selectedId = options.id || app.globalData.selectedCategoryId;
@@ -25,11 +27,22 @@ Page({
       this.setData({ activeTab: parseInt(selectedId) });
       app.globalData.selectedCategoryId = null;
     }
+    this._initialized = true;
     this.loadIndicators();
   },
 
   onShow() {
-    if (!this.data.loading) this.loadIndicators();
+    // 首次进入：onShow 可能先于 onLoad 触发，跳过
+    if (!this._initialized) return;
+
+    // 从首页 switchTab 过来时，onLoad 不会重复触发，需在 onShow 中读取
+    const app = getApp();
+    const selectedId = app.globalData.selectedCategoryId;
+    if (selectedId) {
+      app.globalData.selectedCategoryId = null;
+      this.setData({ activeTab: parseInt(selectedId), loading: true, error: false });
+    }
+    this.loadIndicators();
   },
 
   onPullDownRefresh() {
@@ -46,10 +59,19 @@ Page({
     this.setData({ loading: true, error: false });
     try {
       const data = await api.getCategory(this.data.activeTab);
-      const totalRate = data.reduce((sum, item) => sum + item.completionRate, 0);
-      const totalNat = data.reduce((sum, item) => sum + item.nationalRate, 0);
-      const avgRate = data.length > 0 ? parseFloat((totalRate / data.length).toFixed(2)) : 0;
-      const avgNat = data.length > 0 ? parseFloat((totalNat / data.length).toFixed(2)) : 0;
+
+      // 加权平均（与首页 dashboard 一致）
+      let weightedRateSum = 0;
+      let weightedNatSum = 0;
+      let weightSum = 0;
+      data.forEach(item => {
+        const w = item.weight || 0;
+        weightedRateSum += item.completionRate * w;
+        weightedNatSum += item.nationalRate * w;
+        weightSum += w;
+      });
+      const avgRate = weightSum > 0 ? parseFloat((weightedRateSum / weightSum).toFixed(1)) : 0;
+      const avgNat = weightSum > 0 ? parseFloat((weightedNatSum / weightSum).toFixed(1)) : 0;
 
       this.setData({
         indicators: data,
