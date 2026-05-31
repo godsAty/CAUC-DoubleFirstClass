@@ -12,7 +12,7 @@ App({
 
   globalData: {
     // API 服务器地址 - 开发环境使用本地，上线替换为服务器域名
-    apiBase: 'http://10.124.139.141:5000',
+    apiBase: 'http://localhost:5000',
 
     // 五大维度颜色方案
     categoryColors: {
